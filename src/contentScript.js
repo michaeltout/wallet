@@ -8,7 +8,8 @@ import {
   nearProvider,
   paymentUriHandler,
   solanaProvider,
-  terraProvider
+  terraProvider,
+  verusProvider
 } from './inject'
 import buildConfig from './build.config'
 import { ChainNetworks } from '@/utils/networks'
@@ -50,6 +51,7 @@ function injectProviders(state) {
   inject(bitcoinProvider())
   inject(nearProvider())
   inject(solanaProvider())
+  inject(verusProvider())
 
   setupTerraStreams()
   inject(terraProvider())

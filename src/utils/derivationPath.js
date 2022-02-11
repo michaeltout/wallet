@@ -21,6 +21,10 @@ const derivationPaths = {
     const bitcoinNetwork = ChainNetworks[ChainId.Bitcoin][network]
     return getBitcoinDerivationPath(accountType, bitcoinNetwork.coinType, index)
   },
+  [ChainId.Verus]: (network, index) => {
+    const verusNetwork = ChainNetworks[ChainId.Verus][network]
+    return `m/84'/${verusNetwork.coinType}'/${index}'`
+  },
   [ChainId.Ethereum]: (network, index) => {
     const ethNetwork = ChainNetworks[ChainId.Ethereum][network]
     return getEthereumBasedDerivationPath(ethNetwork.coinType, index)

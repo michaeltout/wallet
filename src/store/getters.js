@@ -20,6 +20,7 @@ const TESTNET_CONTRACT_ADDRESSES = {
 }
 const TESTNET_ASSETS = [
   'BTC',
+  'VRSC',
   'ETH',
   'RBTC',
   'DAI',

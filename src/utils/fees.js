@@ -5,6 +5,7 @@ import { isERC20, isEthereumChain } from './asset'
 
 const SEND_FEE_UNITS = {
   BTC: 290,
+  VRSC: 290,
   ETH: 21000,
   RBTC: 21000,
   BNB: 21000,

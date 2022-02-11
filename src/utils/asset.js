@@ -26,6 +26,16 @@ const EXPLORERS = {
       address: 'https://blockstream.info/address/{hash}'
     }
   },
+  verus: {
+    testnet: {
+      tx: 'https://testex.verus.io/tx/{hash}',
+      address: 'https://testex.verus.io/address/{hash}',
+    },
+    mainnet: {
+      tx: 'https://explorer.verus.io/tx/{hash}',
+      address: 'https://explorer.verus.io/address/{hash}',
+    }
+  },
   rsk: {
     testnet: {
       tx: 'https://explorer.testnet.rsk.co/tx/0x{hash}',

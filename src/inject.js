@@ -287,6 +287,41 @@ window.bitcoin = {
 }
 `
 
+const verusProvider = () => `
+const REQUEST_MAP = {
+  wallet_getConnectedNetwork: 'wallet.getConnectedNetwork',
+  wallet_getAddresses: 'wallet.getAddresses',
+  wallet_signMessage: 'wallet.signMessage',
+  wallet_sendTransaction: 'chain.sendTransaction',
+}
+
+async function handleRequest (req) {
+  const vrsc = window.providerManager.getProviderFor('VRSC')
+  if (req.method === 'wallet_sendTransaction') {
+    const to = req.params[0].to
+    const value = req.params[0].value.toString(16)
+    return vrsc.getMethod('chain.sendTransaction')({ to, value })
+  }
+  const method = REQUEST_MAP[req.method] || req.method
+  return vrsc.getMethod(method)(...req.params)
+}
+
+window.verus = {
+  enable: async () => {
+    const { accepted } = await window.providerManager.enable('verus')
+    if (!accepted) throw new Error('User rejected')
+    const btc = window.providerManager.getProviderFor('VRSC')
+    return btc.getMethod('wallet.getAddresses')()
+  },
+  request: async (req) => {
+    const params = req.params || []
+    return handleRequest({
+      method: req.method, params
+    })
+  }
+}
+`
+
 const nearProvider = () => `
 const REQUEST_MAP = {
   wallet_getConnectedNetwork: 'wallet.getConnectedNetwork',
@@ -399,5 +434,6 @@ export {
   nearProvider,
   paymentUriHandler,
   solanaProvider,
-  terraProvider
+  terraProvider,
+  verusProvider
 }

@@ -22,7 +22,8 @@ export default {
       'ARBETH',
       'FISH',
       'LUNA',
-      'UST'
+      'UST',
+      'VRSC'
     ],
     testnet: [
       'BTC',
@@ -143,6 +144,6 @@ export default {
   },
   discordUrl: 'https://discord.gg/Xsqw7PW8wk',
   networks: ['mainnet', 'testnet'],
-  chains: ['bitcoin', 'ethereum', 'rsk', 'bsc', 'near', 'polygon', 'arbitrum', 'terra', 'fuse'],
+  chains: ['bitcoin', 'verus', 'ethereum', 'rsk', 'bsc', 'near', 'polygon', 'arbitrum', 'terra', 'fuse'],
   supportedBridgeAssets: ['MATIC', 'RBTC']
 }

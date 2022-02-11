@@ -3,6 +3,7 @@ import { EthereumNetworks } from '@liquality/ethereum-networks'
 import { NearNetworks } from '@liquality/near-networks'
 import { SolanaNetworks } from '@liquality/solana-networks'
 import { TerraNetworks } from '@liquality/terra-networks'
+import { VerusNetworks } from '@liquality/verus-networks'
 
 export const Networks = ['mainnet', 'testnet']
 
@@ -10,6 +11,10 @@ export const ChainNetworks = {
   bitcoin: {
     testnet: BitcoinNetworks.bitcoin_testnet,
     mainnet: BitcoinNetworks.bitcoin
+  },
+  verus: {
+    testnet: VerusNetworks.verus_testnet,
+    mainnet: VerusNetworks.verus
   },
   ethereum: {
     testnet: EthereumNetworks.ropsten,

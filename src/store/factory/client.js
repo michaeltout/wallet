@@ -7,6 +7,10 @@ import { BitcoinEsploraSwapFindProvider } from '@liquality/bitcoin-esplora-swap-
 import { BitcoinFeeApiProvider } from '@liquality/bitcoin-fee-api-provider'
 import { BitcoinRpcFeeProvider } from '@liquality/bitcoin-rpc-fee-provider'
 
+import { VerusJsWalletProvider } from '@liquality/verus-js-wallet-provider'
+import { VerusRpcProvider } from '@liquality/verus-rpc-provider'
+import { VerusRpcFeeProvider } from '@liquality/verus-rpc-fee-provider'
+
 import { EthereumRpcProvider } from '@liquality/ethereum-rpc-provider'
 import { EthereumJsWalletProvider } from '@liquality/ethereum-js-wallet-provider'
 import { EthereumSwapProvider } from '@liquality/ethereum-swap-provider'
@@ -95,6 +99,23 @@ function createBtcClient(network, mnemonic, accountType, derivationPath) {
     )
 
   return btcClient
+}
+
+function createVrscClient (network, mnemonic, derivationPath) {
+  const verusNetwork = ChainNetworks.verus[network]
+
+  const vrscClient = new Client()
+  vrscClient.addProvider(new VerusJsWalletProvider(
+    { network: verusNetwork, mnemonic, baseDerivationPath: derivationPath }
+  ))
+  vrscClient.addProvider(new VerusRpcProvider({
+    uri: 'http://localhost:20656',
+    username: 'verus',
+    password: 'local321'
+  }))
+  vrscClient.addProvider(new VerusRpcFeeProvider())
+
+  return vrscClient
 }
 
 function createEthereumClient(
@@ -411,6 +432,7 @@ export const createClient = (asset, network, mnemonic, accountType, derivationPa
   if (assetData.chain === 'terra')
     return createTerraClient(network, mnemonic, derivationPath, asset)
   if (assetData.chain === 'fuse') return createFuseClient(asset, network, mnemonic, derivationPath)
+  if (assetData.chain === 'verus') return createVrscClient(network, mnemonic, derivationPath)
 
   return createEthClient(asset, network, mnemonic, accountType, derivationPath)
 }

@@ -86,8 +86,10 @@ class Foreground {
         const id = Date.now() + '.' + Math.random()
 
         // wait for the result
-        this.emitter.once(id, (result) => {
-          if (result.error) reject(new Error(result.error))
+        this.emitter.once(id, (result) => { 
+          if (result.error) {
+            reject(new Error(result.error))
+          }
           else resolve(result.result)
         })
 
