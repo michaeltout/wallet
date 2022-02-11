@@ -29,11 +29,11 @@ const EXPLORERS = {
   verus: {
     testnet: {
       tx: 'https://testex.verus.io/tx/{hash}',
-      address: 'https://testex.verus.io/address/{hash}',
+      address: 'https://testex.verus.io/address/{hash}'
     },
     mainnet: {
       tx: 'https://explorer.verus.io/tx/{hash}',
-      address: 'https://explorer.verus.io/address/{hash}',
+      address: 'https://explorer.verus.io/address/{hash}'
     }
   },
   rsk: {

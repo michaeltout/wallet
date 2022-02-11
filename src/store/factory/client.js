@@ -101,18 +101,24 @@ function createBtcClient(network, mnemonic, accountType, derivationPath) {
   return btcClient
 }
 
-function createVrscClient (network, mnemonic, derivationPath) {
+function createVrscClient(network, mnemonic, derivationPath) {
   const verusNetwork = ChainNetworks.verus[network]
 
   const vrscClient = new Client()
-  vrscClient.addProvider(new VerusJsWalletProvider(
-    { network: verusNetwork, mnemonic, baseDerivationPath: derivationPath }
-  ))
-  vrscClient.addProvider(new VerusRpcProvider({
-    uri: 'http://localhost:20656',
-    username: 'verus',
-    password: 'local321'
-  }))
+  vrscClient.addProvider(
+    new VerusJsWalletProvider({
+      network: verusNetwork,
+      mnemonic,
+      baseDerivationPath: derivationPath
+    })
+  )
+  vrscClient.addProvider(
+    new VerusRpcProvider({
+      uri: 'http://localhost:20656',
+      username: 'verus',
+      password: 'local321'
+    })
+  )
   vrscClient.addProvider(new VerusRpcFeeProvider())
 
   return vrscClient
