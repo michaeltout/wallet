@@ -66,7 +66,7 @@ export const chainDefaultColors = {
   arbitrum: '#28A0EF',
   terra: '#008080',
   fuse: '#46e8b6',
-  verus: "#3165D4"
+  verus: '#3165D4'
 }
 
 export const getAccountIcon = (chain) => {
