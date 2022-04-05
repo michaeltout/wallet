@@ -925,7 +925,7 @@
           <a class="" href="mailto:info@liquality.io"> info@liquality.io </a>
           <span class="c2">.</span>
         </p>
-        <div class="analytics-optin">
+        <!-- <div class="analytics-optin">
           <div class="analytics-optin-title">Help us improve Liquality to better serve you</div>
           <div class="analytics-optin-message">
             Share where you click. There is no identifying or personal data shared with us. You can
@@ -961,7 +961,7 @@
               </label>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="button-group onboading-home_tnc__actions">
         <button
@@ -995,7 +995,7 @@ export default {
   },
   data: function () {
     return {
-      analyticsAccepted: true,
+      analyticsAccepted: false,
       scrolledToEnd: false
     }
   },

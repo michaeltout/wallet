@@ -3,7 +3,7 @@
     <Head v-if="unlockedAt" :show-dapp-connections="showDappConnections" />
     <router-view />
     <template v-if="unlockedAt && termsAcceptedAt">
-      <AnalyticsOptInModal />
+      <!-- <AnalyticsOptInModal /> -->
       <WatsNewModal />
     </template>
   </div>
@@ -13,13 +13,13 @@
 import { mapState, mapActions } from 'vuex'
 
 import Head from '@/components/Head.vue'
-import AnalyticsOptInModal from '@/components/AnalyticsOptInModal.vue'
+//import AnalyticsOptInModal from '@/components/AnalyticsOptInModal.vue'
 import WatsNewModal from '@/components/WatsNewModal.vue'
 
 export default {
   components: {
     Head,
-    AnalyticsOptInModal,
+    //AnalyticsOptInModal,
     WatsNewModal
   },
   computed: {

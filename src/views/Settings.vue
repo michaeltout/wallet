@@ -41,7 +41,7 @@
           </button>
         </div>
       </div>
-      <div class="setting-item" id="settings_item_default_wallet_analytics">
+      <!-- <div class="setting-item" id="settings_item_default_wallet_analytics">
         <div class="setting-item_title flex-fill mb-2">
           Analytics
           <span class="setting-item_sub"
@@ -55,7 +55,7 @@
             @change="(e) => setAnalyticsEnable(e.value)"
           />
         </div>
-      </div>
+      </div> -->
       <div class="setting-item" id="settings_item_wallet_logs">
         <div class="setting-item_title flex-fill mb-2">
           Wallet Logs
